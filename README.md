@@ -1,4 +1,4 @@
 # HAI-Project
 
-Run the follorwing command on the dedicated environment terminal for dowloading the requiremetns
-pip install -r requirements.txt
+Run the following command on the dedicated environment terminal to download the requirements : 
+" pip install -r requirements.txt " 
