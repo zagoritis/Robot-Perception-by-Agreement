@@ -23,7 +23,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "That’s surprising. I feel like evening can make reading feel less productive.",
+                        "text": "That's surprising. I feel like evening can make reading feel less productive.",
                         "action": "shake_head"
                     },
                     "disagree_no": {
@@ -40,7 +40,7 @@ TOPICS = [
                         "action": "thumbs_up"
                     },
                     "no": {
-                        "text": "I couldn’t have said it better, BOMBOCLAT!",
+                        "text": "I couldn't have said it better, BOMBOCLAT!",
                         "action": "smile"
                     },
                     "neutral": {
@@ -48,11 +48,11 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "That’s not true. Mangas have a unique way of combining visuals and storytelling.",
+                        "text": "That's not true. Mangas have a unique way of combining visuals and storytelling.",
                         "action": "shake_head"
                     },
                     "disagree_no": {
-                        "text": "You’re wrong. Books let you dive into detailed worlds in your own way.",
+                        "text": "You're wrong. Books let you dive into detailed worlds in your own way.",
                         "action": "tilt_forward"
                     }
                 }
@@ -70,7 +70,7 @@ TOPICS = [
                         "action": "nod_agreement"
                     },
                     "no": {
-                        "text": "That’s true! Productivity depends on habits, not just the amount of clutter.",
+                        "text": "That's true! Productivity depends on habits, not just the amount of clutter.",
                         "action": "slight_smile"
                     },
                     "neutral": {
@@ -78,7 +78,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not convinced. Some people thrive in organized chaos.",
+                        "text": "I'm not convinced. Some people thrive in organized chaos.",
                         "action": "raise_eyebrow"
                     },
                     "disagree_no": {
@@ -103,7 +103,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not so sure. Over time, maintaining minimalism might become exhausting.",
+                        "text": "I'm not so sure. Over time, maintaining minimalism might become exhausting.",
                         "action": "shrug"
                     },
                     "disagree_no": {
@@ -125,7 +125,7 @@ TOPICS = [
                         "action": "thumbs_up"
                     },
                     "no": {
-                        "text": "That’s true! Entertainment games can also stimulate creativity.",
+                        "text": "That's true! Entertainment games can also stimulate creativity.",
                         "action": "nod_slightly"
                     },
                     "neutral": {
@@ -133,7 +133,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not sure. Entertainment games can also teach teamwork and strategy.",
+                        "text": "I'm not sure. Entertainment games can also teach teamwork and strategy.",
                         "action": "shrug"
                     },
                     "disagree_no": {
@@ -150,7 +150,7 @@ TOPICS = [
                         "action": "nod_agreement"
                     },
                     "no": {
-                        "text": "Exactly! It’s about balance—games and intellectual activities together.",
+                        "text": "Exactly! It's about balance—games and intellectual activities together.",
                         "action": "smile"
                     },
                     "neutral": {
@@ -158,7 +158,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not sure. Intelligence depends on how you use that extra time.",
+                        "text": "I'm not sure. Intelligence depends on how you use that extra time.",
                         "action": "shrug"
                     },
                     "disagree_no": {
@@ -176,7 +176,7 @@ TOPICS = [
                 "question": "Do you think cooking at home is more enjoyable than dining out?",
                 "responses": {
                     "yes": {
-                        "text": "Absolutely! There’s something special about preparing a meal yourself.",
+                        "text": "Absolutely! There's something special about preparing a meal yourself.",
                         "action": "thumbs_up"
                     },
                     "no": {
@@ -188,7 +188,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not convinced. Dining out is often more enjoyable.",
+                        "text": "I'm not convinced. Dining out is often more enjoyable.",
                         "action": "thoughtful"
                     },
                     "disagree_no": {
@@ -205,7 +205,7 @@ TOPICS = [
                         "action": "nod_agreement"
                     },
                     "no": {
-                        "text": "That’s true! Factors like taste and convenience matter more.",
+                        "text": "That's true! Factors like taste and convenience matter more.",
                         "action": "smile"
                     },
                     "neutral": {
@@ -213,7 +213,7 @@ TOPICS = [
                         "action": None
                     },
                     "disagree_yes": {
-                        "text": "I’m not so sure. People often prioritize convenience or taste.",
+                        "text": "I'm not so sure. People often prioritize convenience or taste.",
                         "action": "skeptical"
                     },
                     "disagree_no": {
@@ -230,36 +230,84 @@ TOPICS = [
 # Function to handle non-verbal cues
 @inlineCallbacks
 def perform_non_verbal_cue(session, action):
-    if action == "nod_agreement":
-        yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {"body.head.pitch": 0.1}},
-            {"time": 1000, "data": {"body.head.pitch": 0.0}}
-        ])
-    elif action == "nod_slightly":
-        yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {"body.head.pitch": 0.05}},
-            {"time": 1000, "data": {"body.head.pitch": 0.0}}
-        ])
-    elif action == "shake_head":
-        yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {"body.head.yaw": -0.2}},
-            {"time": 1000, "data": {"body.head.yaw": 0.2}},
-            {"time": 1500, "data": {"body.head.yaw": 0.0}}
-        ])
-    elif action == "tilt_forward":
-        yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {"body.head.pitch": -0.1}},
-            {"time": 1000, "data": {"body.head.pitch": 0.0}}
-        ])
-    elif action == "thumbs_up":
-        yield session.call("rom.optional.behavior.play", name="BlocklyRightArmUp")
-    elif action == "smile":
-        # Simulate a smile with an eye light pattern
-        yield session.call("rom.actuator.light.write", frames=[
-            {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}  # Green light in the eyes
-        ])
+    try:
+        if action == "nod_agreement":
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.pitch": 0.1}},
+                {"time": 1000, "data": {"body.head.pitch": 0.0}}
+            ])
+        elif action == "nod_slightly":
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.pitch": 0.05}},
+                {"time": 1000, "data": {"body.head.pitch": 0.0}}
+            ])
+        elif action == "shake_head":
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.yaw": -0.2}},
+                {"time": 1000, "data": {"body.head.yaw": 0.2}},
+                {"time": 1500, "data": {"body.head.yaw": 0.0}}
+            ])
+        elif action == "tilt_forward":
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.pitch": -0.1}},
+                {"time": 1000, "data": {"body.head.pitch": 0.0}}
+            ])
+        elif action == "thumbs_up":
+            yield session.call("rom.optional.behavior.play", name="BlocklyRightArmUp")
+        elif action == "smile":
+            # Simulate a smile with an eye light pattern
+            yield session.call("rom.actuator.light.write", frames=[
+                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}  # Green light in the eyes
+            ])
+        else:
+            print("No non-verbal action to perform.")
+    except Exception as e:
+        print(f"Error performing action '{action}': {e}")
+        yield session.call("rie.dialogue.say", text="Oops, something went wrong with my gesture!")
+
+def interpret_response(response):
+    """
+    Categorize the user's response into 'yes', 'no', or 'neutral'.
+    """
+    positive = ["yes", "yeah", "yep", "of course", "sure", "absolutely"]
+    negative = ["no", "nope", "not really", "nah", "never"]
+    
+    if any(word in response.lower() for word in positive):
+        return "yes"
+    elif any(word in response.lower() for word in negative):
+        return "no"
     else:
-        print("No non-verbal action to perform.")
+        return "neutral"
+
+@inlineCallbacks
+def ask_with_clarification(session, question, retries=2):
+    """
+    Ask the user a question and clarify if the response is unclear.
+    Retries are limited to avoid infinite loops.
+    """
+    attempts = 0
+    while attempts <= retries:
+        # Get user response
+        raw_response = yield session.call(
+            "rie.dialogue.ask",
+            question=question,
+            answers={"yes": ["yes", "yeah"], "no": ["no", "nope"]}
+        )
+        
+        # Interpret the response
+        user_response = interpret_response(raw_response)
+        
+        # Check if the response is clear
+        if user_response in ["yes", "no"]:
+            return user_response
+        else:
+            attempts += 1
+            yield session.call("rie.dialogue.say", text="I didn't quite catch that. Could you say it again?")
+    
+    # If still unclear after retries, return neutral
+    yield session.call("rie.dialogue.say", text="Let's move on for now.")
+    return "neutral"
+
 
 # Main interaction function
 @inlineCallbacks
@@ -276,25 +324,46 @@ def main(session, details):
     # Step 2: Select and discuss 3 topics
     chosen_topics = random.sample(TOPICS, 3)
     for topic in chosen_topics:
-        yield session.call("rie.dialogue.say", text=topic["question"])
+        yield session.call("rie.dialogue.say", text=topic["question"]["answer"])
 
         # Listen for user's response
-        user_response = yield session.call(
+        raw_response = yield session.call(
             "rie.dialogue.ask",
             question=topic["question"],
             answers={"yes": ["yes", "yeah"], "no": ["no", "nope"]}
         )
 
+        # Categorize response dynamically
+        user_response = interpret_response(raw_response)
+
+        if user_response == "yes":
+            yield session.call("rie.dialogue.say", text=topic["question"]["yes"])
+        elif user_response == "no":
+            yield session.call("rie.dialogue.say", text=topic["question"]["no"])
+        else:
+            ask_with_clarification() # Fix this
+
         # Step 3: React to response and handle subtopics
         for subtopic in topic.get("subtopics", []):
             yield session.call("rie.dialogue.say", text=subtopic["question"])
-            sub_response = yield session.call(
+            
+            sub_raw_response = yield session.call(
                 "rie.dialogue.ask",
-                question=subtopic["question"],
+                question=topic["question"],
                 answers={"yes": ["yes", "yeah"], "no": ["no", "nope"]}
             )
 
-            response_data = subtopic["responses"].get(sub_response, subtopic["responses"]["neutral"])
+            # Categorize response dynamically
+            sub_user_response = interpret_response(sub_raw_response)
+
+            if sub_user_response == "yes":
+                yield session.call("rie.dialogue.say", text=topic["question"]["yes"])
+            elif sub_user_response == "no":
+                yield session.call("rie.dialogue.say", text=topic["question"]["no"])
+            else:
+                ask_with_clarification() # Fix this
+
+            response_data = subtopic["responses"].get(sub_user_response, subtopic["responses"]["neutral"])
             yield session.call("rie.dialogue.say", text=response_data["text"])
             if response_data["action"]:
                 yield perform_non_verbal_cue(session, response_data["action"])
