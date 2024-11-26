@@ -36,8 +36,9 @@ def perform_non_verbal_cue(session, action):
             yield session.call("rom.actuator.motor.write", name="BlocklyArmsForward")
         
         elif action == "point":
-            yield session.call("rom.actuator.motor.write", name="BlocklyRightArmForward", name="BlocklyRightHandOpen")
-            
+            yield session.call("rom.actuator.motor.write", name="BlocklyRightArmForward")
+            yield session.call("rom.actuator.motor.write", name="BlocklyRightHandOpen")
+
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             
