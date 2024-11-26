@@ -311,7 +311,6 @@ def perform_non_verbal_cue(session, action):
         print(f"Error performing action '{action}': {e}")
         yield session.call("rie.dialogue.say", text="Oops, something went wrong with my gesture!")
 
-
 def interpret_response(response):
     """
     Categorize the user's response into 'yes', 'no', or 'neutral'.
@@ -355,69 +354,54 @@ def ask_with_clarification(session, question, retries=2):
     yield session.call("rie.dialogue.say", text="Let's move on for now.")
     return "neutral"
 
+@inlineCallbacks
+def handle_topic(session, topic):
+    """
+    Handle a single topic, including asking the main question and subtopics.
+    """
+    yield session.call("rie.dialogue.say", text=topic["question"])
+    
+    # Ask the main question
+    user_response = yield ask_with_clarification(session, topic["question"])
+    
+    # Respond and perform gestures based on the response
+    response_data = topic["responses"].get(user_response, topic["responses"]["neutral"])
+    yield session.call("rie.dialogue.say", text=response_data["text"])
+    if response_data.get("action"):
+        yield perform_non_verbal_cue(session, response_data["action"])
+    
+    # Handle subtopics
+    for subtopic in topic.get("subtopics", []):
+        yield session.call("rie.dialogue.say", text=subtopic["question"])
+        sub_response = yield ask_with_clarification(session, subtopic["question"])
+        
+        sub_response_data = subtopic["responses"].get(sub_response, subtopic["responses"]["neutral"])
+        yield session.call("rie.dialogue.say", text=sub_response_data["text"])
+        if sub_response_data.get("action"):
+            yield perform_non_verbal_cue(session, sub_response_data["action"])
+
 
 # Main interaction function
 @inlineCallbacks
 def main(session, details):
+    
     print("Starting interaction...")
     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-
-    # Step 1: Detect user face
-    print("Looking for a face...")
-    yield session.call("rie.vision.face.find")
+    
+    # Step 1: Greet the user
     yield session.call("rie.dialogue.say", text="Hello! Nice to meet you!")
     yield session.call("rom.optional.behavior.play", name="BlocklyWaveRightArm")
-
-    # Step 2: Select and discuss 3 topics
+    
+    # Step 2: Select and handle topics
     chosen_topics = random.sample(TOPICS, 3)
     for topic in chosen_topics:
-        
-        # Listen for user's response
-        raw_response = yield session.call(
-            "rie.dialogue.ask",
-            question=topic["question"],
-            answers={"yes": ["yes", "yeah"], "no": ["no", "nope"]}
-        )
-
-        # Categorize response dynamically
-        user_response = interpret_response(raw_response)
-
-        if user_response == "yes":
-            yield session.call("rie.dialogue.say", text=topic["question"])#["yes"])
-        elif user_response == "no":
-            yield session.call("rie.dialogue.say", text=topic["question"])#["no"])
-        else:
-            ask_with_clarification() # Fix this
-
-        # Step 3: React to response and handle subtopics
-        for subtopic in topic.get("subtopics", []):
-            yield session.call("rie.dialogue.say", text=subtopic["question"])
-            
-            sub_raw_response = yield session.call(
-                "rie.dialogue.ask",
-                question=topic["question"],
-                answers={"yes": ["yes", "yeah"], "no": ["no", "nope"]}
-            )
-
-            # Categorize response dynamically
-            sub_user_response = interpret_response(sub_raw_response)
-
-            if sub_user_response == "yes":
-                yield session.call("rie.dialogue.say", text=topic["question"]["yes"])
-            elif sub_user_response == "no":
-                yield session.call("rie.dialogue.say", text=topic["question"]["no"])
-            else:
-                ask_with_clarification() # Fix this
-
-            response_data = subtopic["responses"].get(sub_user_response, subtopic["responses"]["neutral"])
-            yield session.call("rie.dialogue.say", text=response_data["text"])
-            if response_data["action"]:
-                yield perform_non_verbal_cue(session, response_data["action"])
-
-    # Step 4: Conclude the interaction
+        yield handle_topic(session, topic)
+    
+    # Step 3: Conclude the interaction
     yield session.call("rie.dialogue.say", text="Thank you for chatting with me! Goodbye!")
     yield session.call("rom.optional.behavior.play", name="BlocklyCrouch")
     session.leave()
+
 
 # Set up WAMP connection
 wamp = Component(
