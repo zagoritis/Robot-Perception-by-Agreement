@@ -97,13 +97,13 @@ def handle_topic(session, topic):
 # Main interaction function
 @inlineCallbacks
 def main(session, details):
+
     print("Starting interaction...")
     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
 
     print("Looking for a face...")
     yield session.call("rie.vision.face.find")
-
-    perform_non_verbal_cue(session, "angry")
+    perform_non_verbal_cue(session, "clap")
 
     # Step 1: Greet the user
     yield session.call("rom.optional.behavior.play", name="BlocklyWaveRightArm")
@@ -124,17 +124,18 @@ def main(session, details):
         for subtopic in topic[subtopic_response]:
             yield handle_topic(session, subtopic)
 
-    # Step 3: Conclude the interaction
+        yield session.call("rie.dialogue.say", text="Thank you for chatting with me! Goodbye!")
+        yield session.call("rom.optional.behavior.play", name="BlocklyCrouch")
+        # Step 3: Conclude the interaction
         yield session.call("rie.dialogue.say", text="Do you want to finish?")
         z = yield finish(session)
         if z == "yes":
             yield session.call("rie.dialogue.say", text="Thank you for chatting with me! Goodbye!")
             yield session.call("rom.optional.behavior.play", name="BlocklyCrouch")
             session.leave()
-        else:
+        if z == "no":
             yield session.call("rie.dialogue.say", text="Ok, Here is another question.")
             yield sleep(3)
-
 
 # Set up WAMP connection
 wamp = Component(
