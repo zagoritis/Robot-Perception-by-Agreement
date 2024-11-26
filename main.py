@@ -1,6 +1,7 @@
 from autobahn.twisted.component import Component, run
 from twisted.internet.defer import inlineCallbacks
 import random
+from Topics import TOPICS
 
 # Function to handle non-verbal cues
 @inlineCallbacks
