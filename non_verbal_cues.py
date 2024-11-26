@@ -24,13 +24,13 @@ def perform_non_verbal_cue(session, action):
         
         elif action == "agree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}},
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
         
         elif action == "disagree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [255, 0, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [255, 0, 0]}},
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
 
