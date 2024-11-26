@@ -324,8 +324,7 @@ def main(session, details):
     # Step 2: Select and discuss 3 topics
     chosen_topics = random.sample(TOPICS, 3)
     for topic in chosen_topics:
-        yield session.call("rie.dialogue.say", text=topic["question"]["answer"])
-
+        
         # Listen for user's response
         raw_response = yield session.call(
             "rie.dialogue.ask",
@@ -337,9 +336,9 @@ def main(session, details):
         user_response = interpret_response(raw_response)
 
         if user_response == "yes":
-            yield session.call("rie.dialogue.say", text=topic["question"]["yes"])
+            yield session.call("rie.dialogue.say", text=topic["question"])#["yes"])
         elif user_response == "no":
-            yield session.call("rie.dialogue.say", text=topic["question"]["no"])
+            yield session.call("rie.dialogue.say", text=topic["question"])#["no"])
         else:
             ask_with_clarification() # Fix this
 
@@ -375,8 +374,11 @@ def main(session, details):
 
 # Set up WAMP connection
 wamp = Component(
-    transports=[{"url": "wss://wamp.robotsindeklas.nl", "serializers": ["msgpack"]}],
-    realm="YOUR_REALM_HERE"
+    transports=[{
+        "url": "ws://wamp.robotsindeklas.nl",
+        "serializers": ["msgpack"]
+        }],
+    realm="rie.6745a2ffbafa928f1e3a79d2"
 )
 wamp.on_join(main)
 
