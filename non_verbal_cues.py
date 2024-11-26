@@ -35,22 +35,19 @@ def perform_non_verbal_cue(session, action):
             ])
 
         elif action == "thumbs_up":
-            yield session.call("rom.actuator.motor.play", name="BlocklyArmsForward")
+            yield session.call("rom.optional.behavior.play", name="BlocklyArmsForward")
         
         elif action == "point":
-            yield session.call("rom.actuator.motor.play", frames=[
-                {"time": 500, "data": "BlocklyRightArmForward"},
-                {"time": 1000, "data": "BlocklyRightHandPoint"}
-            ])
-            
+            yield session.call("rom.optional.behavior.play", name="BlocklyRightArmForward")
+        
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             
         elif action == "clap":
-            yield session.call("rom.actuator.motor.play", name="BlocklyApplause")
+            yield session.call("rom.optional.behavior.play", name="BlocklyApplause")
         
         elif action == "look_around":
-            yield session.call("rom.actuator.motor.write", frames=[
+            yield session.call("rom.optional.motor.write", frames=[
                 {"time": 1000, "data": {"body.head.yaw": 0.8}},
                 {"time": 500, "data": {"body.head.pitch": -0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
