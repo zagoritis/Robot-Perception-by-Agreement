@@ -17,3 +17,16 @@ def save_response(id, user_id, topic, subtopic, question, response, interpreted_
     connection.close()
 
     print("Response saved successfully.")
+
+def get_all_responses():
+    # Connect to the database
+    connection = sqlite3.connect("user_responses.db")
+    cursor = connection.cursor()
+
+    # Query the data
+    cursor.execute("SELECT * FROM user_responses")
+    responses = cursor.fetchall()
+
+    # Close the connection
+    connection.close()
+    return responses
