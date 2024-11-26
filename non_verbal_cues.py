@@ -5,10 +5,10 @@ def perform_non_verbal_cue(session, action):
     try:
         if action == "nod_agreement":
             yield session.call("rom.actuator.motor.write", frames=[
-                {"time": 500, "data": {"body.head.pitch": 0.1}},
+                {"time": 500, "data": {"body.head.pitch": 0.2}},
                 {"time": 1000, "data": {"body.head.pitch": 0.0}}
             ])
-            
+        
         elif action == "nod_slightly":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.pitch": 0.05}},
@@ -21,87 +21,38 @@ def perform_non_verbal_cue(session, action):
                 {"time": 1000, "data": {"body.head.yaw": 0.2}},
                 {"time": 1500, "data": {"body.head.yaw": 0.0}}
             ])
-            
-        elif action == "tilt_forward":
-            yield session.call("rom.actuator.motor.write", frames=[
-                {"time": 500, "data": {"body.head.pitch": -0.1}},
-                {"time": 1000, "data": {"body.head.pitch": 0.0}}
-            ])
-            
-        #WRONG
-        elif action == "thumbs_up":
-            yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {
-                "body.arm.right.shoulderPitch": -1.0,  # Arm parallel to ground
-                "body.arm.right.shoulderRoll": 0.0,   # Arm straight out
-                "body.hand.right.thumb": 0.0,         # Extend thumb
-                "body.hand.right.index": 1.0,         # Close index finger
-                "body.hand.right.middle": 1.0,        # Close middle finger
-                "body.hand.right.ring": 1.0,          # Close ring finger
-                "body.hand.right.little": 1.0}}       # Close little finger
-            ])
-            
-        elif action == "smile":
-            # Simulate a smile with an eye light pattern
+        
+        elif action == "agree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}
+                {"time": 2000, "data": {"body.head.eyes": [0, 255, 0]}}
             ])
-            
-        #WRONG
+        
+        elif action == "disagree_eyes":
+            yield session.call("rom.actuator.light.write", frames=[
+                {"time": 2000, "data": {"body.head.eyes": [255, 0, 0]}}
+            ])
+
+        elif action == "thumbs_up":
+            yield session.call("rom.actuator.motor.write", name="BlocklyArmsForward")
+        
         elif action == "point":
-            yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {
-                "body.arm.right.shoulderPitch": -1.0, # Arm parallel to ground
-                "body.arm.right.shoulderRoll": 0.0,   # Arm straight out
-                "body.hand.right.index": 0.0,         # Extend index finger
-                "body.hand.right.thumb": 1.0,         # Close thumb
-                "body.hand.right.middle": 1.0,        # Close middle finger
-                "body.hand.right.ring": 1.0,          # Close ring finger
-                "body.hand.right.little": 1.0}}       # Close little finger
-            ])
+            yield session.call("rom.actuator.motor.write", name="BlocklyRightArmForward", name="BlocklyRightHandOpen")
             
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             
-        #WRONG
         elif action == "clap":
-            yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {
-                "body.arm.right.shoulderPitch": 1.0,  # Bring hands together
-                "body.arm.left.shoulderPitch": 1.0,
-                "body.arm.right.shoulderRoll": 0.2,
-                "body.arm.left.shoulderRoll": -0.2}},
-            {"time": 800, "data": {
-                "body.arm.right.shoulderPitch": 1.2,  # Pull hands slightly apart
-                "body.arm.left.shoulderPitch": 1.2}},
-            {"time": 1100, "data": {
-                "body.arm.right.shoulderPitch": 1.0,  # Clap again
-                "body.arm.left.shoulderPitch": 1.0}}
-            ])
-
-        #WRONG
-        elif action == "nod_clap":
-               yield session.call("rom.actuator.motor.write", frames=[
-            {"time": 500, "data": {
-                "body.head.pitch": 0.2,  # Nod down
-                "body.arm.right.shoulderPitch": 1.0,  # Hands together
-                "body.arm.left.shoulderPitch": 1.0}},
-            {"time": 1000, "data": {
-                "body.head.pitch": -0.2,  # Nod up
-                "body.arm.right.shoulderPitch": 1.2,  # Hands apart
-                "body.arm.left.shoulderPitch": 1.2}},
-            {"time": 1500, "data": {
-                "body.head.pitch": 0.0,  # Reset head
-                "body.arm.right.shoulderPitch": 1.0,  # Clap again
-                "body.arm.left.shoulderPitch": 1.0}}
-            ])
-
+            yield session.call("rom.actuator.motor.write", name="BlocklyApplause")
+        
         elif action == "look_around":
-            #not working
             yield session.call("rom.actuator.motor.write", frames=[
-                {"time": 1000, "data": {"body.head.yaw": 0.5}},  # Look left
-                {"time": 2000, "data": {"body.head.yaw": -0.5}},  # Look right
-                {"time": 3000, "data": {"body.head.yaw": 0.0}}   # Reset to center
+                {"time": 1000, "data": {"body.head.yaw": 0.8}},
+                {"time": 500, "data": {"body.head.pitch": -0.1}},
+                {"time": 500, "data": {"body.head.pitch": 0.0}},
+                {"time": 4000, "data": {"body.head.yaw": -0.8}},
+                {"time": 500, "data": {"body.head.pitch": 0.1}},
+                {"time": 500, "data": {"body.head.pitch": 0.0}},
+                {"time": 7000, "data": {"body.head.yaw": 0.0}}
             ])
 
         else:
