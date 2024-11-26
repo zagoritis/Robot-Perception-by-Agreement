@@ -24,26 +24,30 @@ def perform_non_verbal_cue(session, action):
         
         elif action == "agree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 2000, "data": {"body.head.eyes": [0, 255, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
         
         elif action == "disagree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 2000, "data": {"body.head.eyes": [255, 0, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [255, 0, 0]}}
+                {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
 
         elif action == "thumbs_up":
-            yield session.call("rom.actuator.motor.write", name="BlocklyArmsForward")
+            yield session.call("rom.actuator.motor.play", name="BlocklyArmsForward")
         
         elif action == "point":
-            yield session.call("rom.actuator.motor.write", name="BlocklyRightArmForward")
-            yield session.call("rom.actuator.motor.write", name="BlocklyRightHandOpen")
-
+            yield session.call("rom.actuator.motor.play", frames=[
+                {"time": 500, "data": "BlocklyRightArmForward"},
+                {"time": 1000, "data": "BlocklyRightHandPoint"}
+            ])
+            
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             
         elif action == "clap":
-            yield session.call("rom.actuator.motor.write", name="BlocklyApplause")
+            yield session.call("rom.actuator.motor.play", name="BlocklyApplause")
         
         elif action == "look_around":
             yield session.call("rom.actuator.motor.write", frames=[
