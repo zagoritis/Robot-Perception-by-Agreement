@@ -52,7 +52,6 @@ def handle_topic(session, topic):
     """
     Handle a single topic, including asking the main question and subtopics.
     """
-    yield session.call("rie.dialogue.say", text=topic["question"])
     
     # Ask the main question
     user_response = yield ask_with_clarification(session, topic["question"])
@@ -80,6 +79,11 @@ def main(session, details):
     
     print("Starting interaction...")
     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
+    
+    print("Looking for a face...")
+    yield session.call("rie.vision.face.find")
+    
+    perform_non_verbal_cue(session, "smile")
     
     # Step 1: Greet the user
     yield session.call("rie.dialogue.say", text="Hello! Nice to meet you!")
