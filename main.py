@@ -236,34 +236,81 @@ def perform_non_verbal_cue(session, action):
                 {"time": 500, "data": {"body.head.pitch": 0.1}},
                 {"time": 1000, "data": {"body.head.pitch": 0.0}}
             ])
+            
         elif action == "nod_slightly":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.pitch": 0.05}},
                 {"time": 1000, "data": {"body.head.pitch": 0.0}}
             ])
+            
         elif action == "shake_head":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.yaw": -0.2}},
                 {"time": 1000, "data": {"body.head.yaw": 0.2}},
                 {"time": 1500, "data": {"body.head.yaw": 0.0}}
             ])
+            
         elif action == "tilt_forward":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.pitch": -0.1}},
                 {"time": 1000, "data": {"body.head.pitch": 0.0}}
             ])
+            
         elif action == "thumbs_up":
+            #not working
             yield session.call("rom.optional.behavior.play", name="BlocklyRightArmUp")
+            
         elif action == "smile":
             # Simulate a smile with an eye light pattern
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}  # Green light in the eyes
+                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}}
             ])
+            
+        elif action == "point":
+            #not working
+            yield session.call("rom.optional.behavior.play", name="BlocklyPointRight")
+            
+        elif action == "look_around":
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.yaw": 0.2}},
+                {"time": 1000, "data": {"body.head.yaw": -0.2}},
+                {"time": 1500, "data": {"body.head.yaw": 0.0}}
+            ])
+            
+        elif action == "shrug":
+            yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
+            
+        elif action == "clap":
+            #not working
+            yield session.call("rom.optional.behavior.play", name="BlocklyClap")
+            
+        elif action == "nod_clap":
+            #not working
+            yield session.call("rom.optional.behavior.play", name="BlocklyNod")
+            yield session.call("rom.optional.behavior.play", name="BlocklyClap")
+
+        elif action == "turn_body":
+            #not working
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.torso.yaw": 0.2}},
+                {"time": 1000, "data": {"body.torso.yaw": 0.0}}
+            ])
+            
+        elif action == "look_around":
+            #not working
+            yield session.call("rom.actuator.motor.write", frames=[
+                {"time": 500, "data": {"body.head.yaw": 0.2}},
+                {"time": 1000, "data": {"body.head.yaw": -0.2}},
+                {"time": 1500, "data": {"body.head.yaw": 0.0}}
+            ])
+
         else:
             print("No non-verbal action to perform.")
+            
     except Exception as e:
         print(f"Error performing action '{action}': {e}")
         yield session.call("rie.dialogue.say", text="Oops, something went wrong with my gesture!")
+
 
 def interpret_response(response):
     """
