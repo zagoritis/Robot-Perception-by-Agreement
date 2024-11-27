@@ -36,18 +36,23 @@ def perform_non_verbal_cue(session, action):
 
         elif action == "thumbs_up":
             yield session.call("rom.optional.behavior.play", name="BlocklyArmsForward")
+            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
         
         elif action == "point":
             yield session.call("rom.optional.behavior.play", name="BlocklyRightArmForward")
+            yield session.call("rom.optional.behavior.play", name="BlocklyRightHandOpen")
+            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
         
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
+            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
             
         elif action == "clap":
             yield session.call("rom.optional.behavior.play", name="BlocklyApplause")
+            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
         
         elif action == "look_around":
-            yield session.call("rom.optional.motor.write", frames=[
+            yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 1000, "data": {"body.head.yaw": 0.8}},
                 {"time": 500, "data": {"body.head.pitch": -0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
@@ -59,7 +64,7 @@ def perform_non_verbal_cue(session, action):
 
         else:
             print("No non-verbal action to perform.")
-            
+        
     except Exception as e:
         print(f"Error performing action '{action}': {e}")
         yield session.call("rie.dialogue.say", text="Oops, something went wrong with my gesture!")
