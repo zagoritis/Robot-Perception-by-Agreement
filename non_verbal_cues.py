@@ -53,10 +53,10 @@ def perform_non_verbal_cue(session, action):
         
         elif action == "look_around":
             yield session.call("rom.actuator.motor.write", frames=[
-                {"time": 1000, "data": {"body.head.yaw": 0.8}},
+                {"time": 1000, "data": {"body.head.yaw": 0.5}},
                 {"time": 500, "data": {"body.head.pitch": -0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
-                {"time": 4000, "data": {"body.head.yaw": -0.8}},
+                {"time": 4000, "data": {"body.head.yaw": -0.5}},
                 {"time": 500, "data": {"body.head.pitch": 0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
                 {"time": 7000, "data": {"body.head.yaw": 0.0}}
