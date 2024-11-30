@@ -24,13 +24,15 @@ def perform_non_verbal_cue(session, action):
         
         elif action == "agree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [0, 255, 0]}},
+                {"time": 100, "data": {"body.head.eyes": [0, 255, 0]}},
+                {"time": 300, "data": {"body.head.eyes": [255, 255, 255]}},
+                {"time": 700, "data": {"body.head.eyes": [0, 255, 0]}},
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
         
         elif action == "disagree_eyes":
             yield session.call("rom.actuator.light.write", frames=[
-                {"time": 1000, "data": {"body.head.eyes": [255, 0, 0]}},
+                {"time": 100, "data": {"body.head.eyes": [255, 0, 0]}},
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
 
@@ -53,10 +55,10 @@ def perform_non_verbal_cue(session, action):
         
         elif action == "look_around":
             yield session.call("rom.actuator.motor.write", frames=[
-                {"time": 1000, "data": {"body.head.yaw": 0.5}},
+                {"time": 1000, "data": {"body.head.yaw": 0.8}},
                 {"time": 500, "data": {"body.head.pitch": -0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
-                {"time": 4000, "data": {"body.head.yaw": -0.5}},
+                {"time": 4000, "data": {"body.head.yaw": -0.8}},
                 {"time": 500, "data": {"body.head.pitch": 0.1}},
                 {"time": 500, "data": {"body.head.pitch": 0.0}},
                 {"time": 7000, "data": {"body.head.yaw": 0.0}}
