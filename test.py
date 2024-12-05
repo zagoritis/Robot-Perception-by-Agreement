@@ -20,7 +20,7 @@ def main(session, details):
     yield session.call("rie.dialogue.say_animated",
                        text="Hello! This is a test conversation to show you how the interaction should look like. For every question you have to give a firm answer YES or NO. Then you can elaborate more on this. This is the test question:")
 
-    yield sleep(2)
+    yield sleep(1)
     # Step 2: Select and handle topics
     # Yes, I like this pizza because It is tasty
     yield session.call(
@@ -30,10 +30,10 @@ def main(session, details):
                  "no": ["no", "nope", "not really", "nah", "never"]}
     )
     print("Answer heard...")
-    yield sleep(4)
+    yield sleep(2)
     yield session.call("rie.dialogue.say_animated", text="Here I would answer. And after that I would ask you more questions.")
     yield session.call("rie.dialogue.say_animated",
-                       text="In the normal conversation, We will have conversation with 6 topics.")
+                       text="In the normal conversation, We will have conversation with 3 topics.")
 
     yield session.call("rie.dialogue.say_animated", text="This is the end of the test.")
     yield session.call("rom.optional.behavior.play", name="BlocklyCrouch")
@@ -46,7 +46,7 @@ wamp = Component(
         "url": "ws://wamp.robotsindeklas.nl",
         "serializers": ["msgpack"]
     }],
-    realm="rie.674ecb2501e236295c511afa"
+    realm="rie.6751703401e236295c512e0b"
 
 )
 wamp.on_join(main)

@@ -20,7 +20,7 @@ def ask_with_clarification(session, question, retries=2):
             answers={"yes": ["yes", "yeah", "yep", "of course", "sure", "absolutely", "finally"],
                      "no": ["no", "nope", "not really", "nah", "never"]}
         )
-
+        print("Answer heard...")
         z = input()
         if z == "y":
             return "yes"
@@ -49,7 +49,6 @@ def handle_topic(session, topic):
         robot = "no"
     else:
         robot="neutral"
-    print("Answer heard...")
     # Respond and perform gestures based on the response
     response_data = topic["responses"].get(robot, topic["responses"]["neutral"])
     if response_data.get("action"):
@@ -68,7 +67,7 @@ def main(session, details):
 
     print("Looking for a face...")
     yield session.call("rie.vision.face.find")
-    perform_non_verbal_cue(session, "disagree_eyes")
+    perform_non_verbal_cue(session, "agree_eyes")
 
     # Step 1: Greet the user
     yield session.call("rom.optional.behavior.play", name="BlocklyWaveRightArm")
@@ -110,7 +109,7 @@ wamp = Component(
         "url": "ws://wamp.robotsindeklas.nl",
         "serializers": ["msgpack"]
     }],
-    realm="rie.6748396dbafa928f1e3a8aac"
+    realm="rie.6751703401e236295c512e0b"
 )
 wamp.on_join(main)
 

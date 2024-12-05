@@ -17,10 +17,10 @@ def ask_with_clarification(session, question, retries=2):
         user_response = yield session.call(
             "rie.dialogue.ask",
             question=question,
-            answers={"yes": ["yes", "yeah", "yep", "of course", "sure", "absolutely", "finally"],
-                     "no": ["no", "nope", "not really", "nah", "never"]}
+            answers={"yes": ["yes", "yeah", "yep", "of course", "sure", "absolutely", "finally", "I like", "goed"],
+                     "no": ["no", "nope", "not really", "nah", "never", "I don't like"]}
         )
-
+        print("Answer heard...")
         z = input()
         if z == "y":
             return "yes"
@@ -49,7 +49,6 @@ def handle_topic(session, topic):
         robot = "disagree_no"
     else:
         robot="neutral"
-    print("Answer heard...")
     # Respond and perform gestures based on the response
     response_data = topic["responses"].get(robot, topic["responses"]["neutral"])
     if response_data.get("action"):
@@ -110,7 +109,7 @@ wamp = Component(
         "url": "ws://wamp.robotsindeklas.nl",
         "serializers": ["msgpack"]
     }],
-    realm="rie.6748396dbafa928f1e3a8aac"
+    realm="rie.6751703401e236295c512e0b"
 )
 wamp.on_join(main)
 

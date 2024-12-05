@@ -16,7 +16,7 @@ TOPICS = [
             },
             "disagree_yes": {
                 "text": "Really? I think it can get a bit boring just sitting and reading.",
-                "action": "shrug"
+                "action": "shake_head_low"
             },
             "disagree_no": {
                 "text": "Really? Books are a great way to unwind after a long day.",
@@ -95,7 +95,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "That’s surprising. I feel like reading books is more enjoyable than movies",
-                        "action": "shrug"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "Oh, I believe that watching movies is always creating more relaxing state.",
@@ -224,7 +224,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not so sure. Too many possessions might create stress rather than comfort.",
-                        "action": "shrug"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "I disagree! Surrounding yourself with items you enjoy can add to your comfort and happiness.",
@@ -326,7 +326,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not sure. Even with more time, intelligence depends on how you use that extra time.",
-                        "action": "shrug"
+                        "action": "shake_head_low"
                     },
                     "disagree_no": {
                         "text": "I disagree! Setting boundaries on gaming can boost focus and encourage more productive habits.",
@@ -405,7 +405,7 @@ TOPICS = [
             },
             "disagree_yes": {
                 "text": "I’m not so sure. Restaurants provide a level of convenience that cooking at home doesn’t.",
-                "action": "shrug"
+                "action": "shake_head_fast"
             },
             "disagree_no": {
                 "text": "I disagree! Cooking at home gives you more control over what you eat.",
@@ -663,7 +663,7 @@ TOPICS = [
             },
             "disagree_yes": {
                 "text": "I’m not so sure. Planes can feel impersonal and stressful compared to other forms of travel.",
-                "action": "shrug"
+                "action": "shake_head_low"
             },
             "disagree_no": {
                 "text": "I disagree! For speed and convenience, planes are hard to beat.",

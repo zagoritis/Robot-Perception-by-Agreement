@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeedbfa6-a8a3-496d-aa52-1fe533f1f83b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Topics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Topics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Topics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainForAgree.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForAgree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainForDisagree.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForDisagree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainForNeutral.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForNeutral.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2pNvelMfgA1iKCu5n9iTdeoKuhp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,7 +37,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Topics.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.mainForAgree.executor": "Run",
+    "Python.mainForDisagree.executor": "Run",
+    "Python.mainForNeutral.executor": "Run",
+    "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/nizie/OneDrive/Dokumenty/GitHub/HAI-Project",
@@ -62,6 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1732619444446</updated>
       <workItem from="1732619445539" duration="5171000" />
+      <workItem from="1733397178008" duration="11000" />
+      <workItem from="1733397192759" duration="12456000" />
     </task>
     <servers />
   </component>
@@ -69,6 +80,11 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Topics_py$mainForNeutral.coverage" NAME="mainForNeutral Coverage Results" MODIFIED="1733407210103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Topics_py$Topics.coverage" NAME="Topics Coverage Results" MODIFIED="1733402500693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Topics_py$mainForAgree.coverage" NAME="mainForAgree Coverage Results" MODIFIED="1733408598949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Topics_py$test.coverage" NAME="test Coverage Results" MODIFIED="1733410417951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Topics_py$mainForDisagree.coverage" NAME="mainForDisagree Coverage Results" MODIFIED="1733410693030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/HAI_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1732621244003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

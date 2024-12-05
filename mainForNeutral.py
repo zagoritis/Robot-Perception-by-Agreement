@@ -14,7 +14,13 @@ def ask_with_clarification(session, question, retries=2):
     attempts = 0
     while attempts <= retries:
         # Get user response
-        yield session.call("rie.dialogue.say", text=question)
+        user_response = yield session.call(
+            "rie.dialogue.ask",
+            question=question,
+            answers={"yes": ["yes", "yeah", "yep", "of course", "sure", "absolutely", "finally"],
+                     "no": ["no", "nope", "not really", "nah", "never"]}
+        )
+        print("Answer heard...")
         z = input()
         if z == "y":
             return "yes"
@@ -36,7 +42,6 @@ def handle_topic(session, topic):
     """
 
     user_response = yield ask_with_clarification(session, topic["question"])
-    print("Answer heard...")
 
     response_data = topic["responses"].get("neutral", topic["responses"]["neutral"])
 
@@ -89,7 +94,7 @@ wamp = Component(
         "url": "ws://wamp.robotsindeklas.nl",
         "serializers": ["msgpack"]
     }],
-    realm="rie.6748396dbafa928f1e3a8aac"
+    realm="rie.6751703401e236295c512e0b"
 )
 wamp.on_join(main)
 
