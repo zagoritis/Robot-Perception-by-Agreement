@@ -41,7 +41,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "That's surprising. I feel like evening can make reading feel less productive.",
-                        "action": "shake_head"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "Oh, I believe that evening reading feels more calming.",
@@ -54,10 +54,10 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "You are right! Books can make your imagination fly away!",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
-                        "text": "I couldn't have said it better, BOMBOCLAT!",
+                        "text": "I couldn't have said it better!",
                         "action": "agree_eyes"
                     },
                     "neutral": {
@@ -70,7 +70,7 @@ TOPICS = [
                     },
                     "disagree_no": {
                         "text": "You're wrong. Books let you dive into detailed worlds in your own way.",
-                        "action": "shrug"
+                        "action": "shake_head_low"
                     }
                 }
             }
@@ -99,7 +99,7 @@ TOPICS = [
                     },
                     "disagree_no": {
                         "text": "Oh, I believe that watching movies is always creating more relaxing state.",
-                        "action": "shake_head"
+                        "action": "disagree_eyes"
                     }
                 }
             },
@@ -135,7 +135,7 @@ TOPICS = [
         "responses": {
             "yes": {
                 "text": "Absolutely! A minimalist approach can bring so much clarity and peace.",
-                "action": "nod_agreement"
+                "action": "clap"
             },
             "no": {
                 "text": "I get that. Sometimes minimalism can feel limiting rather than freeing.",
@@ -147,11 +147,11 @@ TOPICS = [
             },
             "disagree_yes": {
                 "text": "I’m not so sure. Sometimes minimalism can feel too restrictive or unrealistic.",
-                "action": "shrug"
+                "action": "shake_head_low"
             },
             "disagree_no": {
                 "text": "I disagree! Minimalism helps create space for the things that really matter in life.",
-                "action": "disagree_eyes"
+                "action": "shake_head_fast"
             }
         },
         "subtopics_Yes": [
@@ -172,7 +172,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not convinced. Some people thrive in organized chaos.",
-                        "action": "shrug"
+                        "action": "shake_head_low"
                     },
                     "disagree_no": {
                         "text": "I disagree! A minimalist workspace can make it easier to focus and stay on track.",
@@ -185,7 +185,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Totally! Once you embrace it, it can become a lifestyle choice.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "Exactly! It can be tough to maintain minimalism over time.",
@@ -216,7 +216,7 @@ TOPICS = [
                     },
                     "no": {
                         "text": "Exactly! Too many possessions can sometimes feel overwhelming.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "neutral": {
                         "text": "Living with more possessions can bring comfort by making sure you always have what you need and enjoy close at hand. But it can also require careful organization to avoid clutter.",
@@ -241,7 +241,7 @@ TOPICS = [
                     },
                     "no": {
                         "text": "Absolutely! Holding onto meaningful things doesn’t have to conflict with minimalism.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "neutral": {
                         "text": "Minimalism can be tricky when it comes to sentimental or practical items. While it encourages letting go of excess, it may clash with the desire to preserve memories or keep items for future needs.",
@@ -276,7 +276,7 @@ TOPICS = [
             },
             "disagree_yes": {
                 "text": "NO! YOU ARE WRONG! Games can enhance critical thinking and even improve intelligence.",
-                "action": "point"
+                "action": "shake_head_low"
             },
             "disagree_no": {
                 "text": "I don’t agree! Gaming often stop promoting creativity and quick decision-making.",
@@ -289,7 +289,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Exactly! Educational games are a great way to learn while having fun.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "That’s true! Entertainment games can also stimulate creativity and problem-solving.",
@@ -341,7 +341,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Absolutely. Overdoing it can take away from time spent on other important activities.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "That’s true! Moderation is key, and it doesn’t necessarily harm intelligence.",
@@ -382,7 +382,7 @@ TOPICS = [
                     },
                     "disagree_no": {
                         "text": "I disagree! Games like chess or strategy simulations can significantly boost mental skills.",
-                        "action": "point"
+                        "action": "shake_head_fast"
                     }
                 }
             }
@@ -418,7 +418,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Absolutely! There’s something special about preparing a meal yourself.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "True! Dining out is a treat and can be more relaxing.",
@@ -459,7 +459,7 @@ TOPICS = [
                     },
                     "disagree_no": {
                         "text": "I disagree! For many, saving money by cooking at home is a top priority.",
-                        "action": "shrug"
+                        "action": "shake_head_low"
                     }
                 }
             }
@@ -470,7 +470,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Absolutely! There’s something special about preparing a meal yourself.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "True! Dining out is a treat and can be more relaxing.",
@@ -499,7 +499,7 @@ TOPICS = [
                     },
                     "no": {
                         "text": "That’s true! Factors like taste and convenience often matter more.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "neutral": {
                         "text": "Cost is an important factor, but so are convenience, health, and the overall experience of the meal.",
@@ -547,7 +547,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Exactly! Sunshine and fresh air make for the perfect combination.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "Totally! Being outdoors is enjoyable no matter the weather.",
@@ -559,7 +559,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "Not necessarily. Overcast or cool days can make outdoor activities feel more comfortable.",
-                        "action": "shrug"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "I disagree! Sunny days encourage us to get outside and enjoy nature.",
@@ -584,7 +584,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not sure about that. I think productivity is more about habit than weather.",
-                        "action": "shrug"
+                        "action": "shake_head_low"
                     },
                     "disagree_no": {
                         "text": "I disagree! A sunny environment can really make you feel more motivated.",
@@ -599,7 +599,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "Exactly! Sunshine and fresh air make for the perfect combination.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "Totally! Being outdoors is enjoyable no matter the weather.",
@@ -628,7 +628,7 @@ TOPICS = [
                     },
                     "no": {
                         "text": "That’s a great point! Productivity can depend more on your mindset than the weather.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "neutral": {
                         "text": "Weather can influence productivity, but it’s not the only factor. Some people feel more driven on sunny days, while others focus better when it’s overcast or raining.",
@@ -636,7 +636,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not sure about that. I think productivity is more about habit than weather.",
-                        "action": "disagree_eyes"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "I disagree! A sunny environment can really make you feel more motivated.",
@@ -651,7 +651,7 @@ TOPICS = [
         "responses": {
             "yes": {
                 "text": "Absolutely! Planes are fast and convenient for long distances.",
-                "action": "thumbs_up"
+                "action": "double_nod_agreement"
             },
             "no": {
                 "text": "I understand. There’s something special about slower, scenic travel.",
@@ -728,7 +728,7 @@ TOPICS = [
                 "responses": {
                     "yes": {
                         "text": "I completely agree! Trains are more scenic and relaxing.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "no": {
                         "text": "Exactly! Trains are great, but planes save so much time.",
@@ -757,7 +757,7 @@ TOPICS = [
                     },
                     "no": {
                         "text": "I see your point. Not everyone has the flexibility to choose eco-friendly options.",
-                        "action": "thumbs_up"
+                        "action": "double_nod_agreement"
                     },
                     "neutral": {
                         "text": "Environmental impact is an important factor in travel, but it often depends on individual priorities and available alternatives. Balancing convenience with sustainability can be tricky.",
@@ -765,7 +765,7 @@ TOPICS = [
                     },
                     "disagree_yes": {
                         "text": "I’m not sure. For many, convenience or cost might outweigh environmental concerns.",
-                        "action": "point"
+                        "action": "shake_head_fast"
                     },
                     "disagree_no": {
                         "text": "I don’t agree! Reducing our travel footprint is crucial for the planet.",
