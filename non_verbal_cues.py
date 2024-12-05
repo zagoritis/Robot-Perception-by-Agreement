@@ -32,18 +32,15 @@ def perform_non_verbal_cue(session, action):
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
        
-        elif action == "thumbs_up":
-            yield session.call("rom.optional.behavior.play", name="BlocklyArmsForward")
-            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
+        # elif action == "thumbs_up":
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyArmsForward")
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyHappy")
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
 
-        elif action == "happy":
-            yield session.call("rom.optional.behavior.play", name="BlocklyHappy")
-            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
+        # elif action == "happy":
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyHappy")
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
 
-        elif action == "shrug":
-            yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
-            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-            
         elif action == "clap":
             yield session.call("rom.optional.behavior.play", name="BlocklyApplause")
             yield session.call("rom.optional.behavior.play", name="BlocklyStand")
@@ -88,14 +85,15 @@ def perform_non_verbal_cue(session, action):
             yield session.call("rom.optional.behavior.play", name="BlocklyRightArmForward")
             yield session.call("rom.optional.behavior.play", name="BlocklyRightHandOpen")
             yield session.call("rom.optional.behavior.play", name="BlocklyStand")
+            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
 
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             yield session.call("rom.optional.behavior.play", name="BlocklyStand")
 
-        elif action == "fear":
-            yield session.call("rom.optional.behavior.play", name="BlocklyFearUp")
-            yield session.call("rom.optional.behavior.play", name="BlocklyStand")
+        # elif action == "fear":
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyFearUp")
+        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
     
         else:
             print("No non-verbal action to perform.")
