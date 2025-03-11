@@ -10,11 +10,8 @@ This project explores how a robot’s level of agreement with human opinions inf
 The study investigates whether a robot that agrees with a user is perceived as friendlier and how neutrality or disagreement affects perceptions of intelligence and autonomy.
 
 ## Methodology
-- **Hardware:** NAO Robot  
-- **Software:** Python
-- **Interaction Models:** Verbal responses combined with non-verbal cues.
-- **Evaluation:** Participants interact with one of the models and complete an interview.  
-
+For this project, the NAO robot is used, incorporating verbal and non-verbal cues to interact with users. Each participant engages with one of the three models and then completes an interview to assess their perception of the robot.
+  
 ## Project Structure
 - `mainForAgree.py` - Script for the agreement model  
 - `mainForNeutral.py` - Script for the neutral model  
