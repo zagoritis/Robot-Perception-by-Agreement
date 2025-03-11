@@ -3,7 +3,7 @@ from twisted.internet.defer import inlineCallbacks
 @inlineCallbacks
 def perform_non_verbal_cue(session, action):
     try:
-        #AGREE:
+        #AGREE NON-VERBAL CUES:
         if action == "nod_agreement":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.pitch": 0.2}},
@@ -31,21 +31,12 @@ def perform_non_verbal_cue(session, action):
                 {"time": 700, "data": {"body.head.eyes": [0, 255, 0]}},
                 {"time": 1000, "data": {"body.head.eyes": [255, 255, 255]}}
             ])
-       
-        # elif action == "thumbs_up":
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyArmsForward")
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyHappy")
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-
-        # elif action == "happy":
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyHappy")
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-
+            
         elif action == "clap":
             yield session.call("rom.optional.behavior.play", name="BlocklyApplause")
             yield session.call("rom.optional.behavior.play", name="BlocklyStand")
             
-        #DISAGREE:
+        #DISAGREE NON-VERBAL CUES:
         elif action == "shake_head":
             yield session.call("rom.actuator.motor.write", frames=[
                 {"time": 500, "data": {"body.head.yaw": -0.2}},
@@ -90,11 +81,7 @@ def perform_non_verbal_cue(session, action):
         elif action == "shrug":
             yield session.call("rom.optional.behavior.play", name="BlocklyShrug")
             yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-
-        # elif action == "fear":
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyFearUp")
-        #     yield session.call("rom.optional.behavior.play", name="BlocklyStand")
-    
+            
         else:
             print("No non-verbal action to perform.")
         
