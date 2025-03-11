@@ -11,9 +11,9 @@ The study investigates whether a robot that agrees with a user is perceived as f
 
 ## Methodology
 - **Hardware:** NAO Robot  
-- **Software:** Python (Twisted, Autobahn), WAMP communication protocol  
-- **Interaction Models:** Verbal responses combined with non-verbal cues (nods, gestures, lighting effects)  
-- **Evaluation:** Participants interact with each model and complete a Godspeed questionnaire + interviews for qualitative insights  
+- **Software:** Python
+- **Interaction Models:** Verbal responses combined with non-verbal cues.
+- **Evaluation:** Participants interact with one of the models and complete an interview.  
 
 ## Project Structure
 - `mainForAgree.py` - Script for the agreement model  
