@@ -28,7 +28,7 @@ Findings suggest:
 - Disagreement promotes engagement but can feel frustrating.  
 - Neutrality appears logical but lacks warmth and emotional connection.  
 
-## Team
+## Contributors
 - Kacper Nizielski  
 - Alejandro Lopez  
 - Emmanouil Zagoritis  
